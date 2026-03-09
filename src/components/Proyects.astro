@@ -1,0 +1,185 @@
+---
+const projects = [
+  {
+    id: 1,
+    name: "Finzenú",
+    subtitle: "Montaje de Estructura Metálica",
+    category: "Montaje Industrial",
+    specs: { eslora: "60.9 m", manga: "12.4 m" },
+    img: "src/assets/images/Proyectos/Finzenu1.jpg",
+    objective: "Realizar el Montaje de la Estructura Metálica y Equipos que componían a la Draga.",
+    process: "Tras subir el planchón a dique seco, se instalaron las zapatas con calzas de nivelación mientras se pre-ensamblaban los pórticos. Estos se montaron secuencialmente por niveles, integrando los equipos y estructuras de entrepisos de forma progresiva. El ciclo se repitió hasta completar el armado total y la ubicación de toda la maquinaria.",
+    machinery: ["2–3 Grúas", "Máquina de Soldar", "Torquímetros", "Pajarita"]
+  },
+  {
+    id: 2,
+    name: "Finzenú",
+    subtitle: "Montaje de Pulpa y Redes de Agua",
+    category: "Redes e Instalaciones",
+    specs: null,
+    img: "src/assets/images/Proyectos/Finzenu2.jpg",
+    objective: "Suministrar e instalar las diferentes redes de la barcaza.",
+    process: "Se fabricaron los spools de tubería mientras se realizaba el montaje de la estructura y se fueron instalando de manera simultánea varias redes, donde se incluían desde mangueras de lodos, tubos de acero y tubería de PVC. Esto se realizó mediante los procesos de soldadura, pailería, montaje mecánico.",
+    machinery: ["Equipos de Soldadura", "Grúa"]
+  },
+  {
+    id: 4,
+    name: "San Lucas",
+    subtitle: "Construcción de Planchón",
+    category: "Construcción Naval",
+    specs: { eslora: "25.20 m", manga: "7.010 m" },
+    img: "src/assets/images/Proyectos/SanLucas.jpg",
+    objective: "Construir planchón con las medidas requeridas por el cliente.",
+    process:"La barcaza se construyó mediante soldadura revestida y Flux-Cored, iniciando con el ensamble del fondo y el mamparo principal. Posteriormente, se instalaron las cuadernas y el pantoque en paralelo a los costados y el bocel. El proceso finalizó con el armado de la cubierta y la ejecución de todo el outfitting",
+    machinery: ["Máquinas de Soldar", "Grúa"]
+  }
+  ,
+/*   {
+    id: 3,
+    name: "Santa Isabel",
+    subtitle: "diseño y construccion",
+    category: "Construcción Naval",
+    specs: null,
+    img: "src/assets/images/Proyectos/SantaIsabel.jpg",
+    objective: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, dolores.",
+    process:"   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima repudiandae itaque numquam aut, provident labore maiores non sunt necessitatibus aliquam autem corporis fuga recusandae? Architecto.",
+    machinery: ["2–3 Grúas", "Máquina de Soldar", "Torquímetros", "Pajarita"]
+  } */
+];
+---
+
+<section id="proyectos" class="py-24 bg-blue-950 text-white relative overflow-hidden">
+
+  
+  
+  <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div>
+        <h2 class="text-[#098D37] font-bold tracking-wider uppercase text-sm mb-3">Portafolio</h2>
+        <h3 class="text-4xl md:text-5xl font-bold leading-tight">
+          Proyectos <br/><span class="text-slate-400">Ejecutados</span>
+        </h3>
+        <div class="w-24 h-1 bg-[#098D37] mt-6"></div>
+      </div>
+      <p class="text-slate-400 max-w-sm text-sm leading-relaxed">
+        Cada proyecto refleja nuestro compromiso con la precisión técnica y la excelencia en la industria naval colombiana.
+      </p>
+    </div>
+
+  
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="projects-grid">
+      {projects.map((project) => (
+        <article
+          class="project-card group bg-blue-900/40 border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/40 transition-all duration-500 cursor-pointer"
+          data-id={project.id}
+        >
+          
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={project.img}
+              alt={project.name}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-blue-950 via-blue-950/30 to-transparent pointer-events-none"></div>
+
+            
+            <div class="absolute top-4 left-4 bg-[#098D37] text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider pointer-events-none">
+              {project.category}
+            </div>
+
+            
+            {project.specs && (
+              <div class="absolute top-4 right-4 bg-blue-950/80 backdrop-blur-sm border border-white/20 text-white text-xs px-3 py-1.5 rounded-full pointer-events-none">
+                {project.specs.eslora} · {project.specs.manga}
+              </div>
+            )}
+          </div>
+
+         
+          <div class="p-7">
+            <div class="mb-4">
+              <p class="text-[#098D37] text-lg font-bold uppercase tracking-widest mb-1">{project.name}</p>
+              <h4 class="text-xl font-bold text-white">{project.subtitle}</h4>
+            </div>
+
+            <p class="text-slate-400 text-sm leading-relaxed line-clamp-2 mb-5">{project.objective}</p>
+
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.machinery.map((m) => (
+                <span class="bg-white/5 border border-white/10 text-slate-300 text-xs px-3 py-1 rounded-full pointer-events-none">
+                  {m}
+                </span>
+              ))}
+            </div>
+
+            
+            <button
+              class="expand-btn flex items-center gap-2 text-white text-sm font-semibold hover:text-[#16c955] transition-colors w-full"
+              data-target={`details-${project.id}`}
+            >
+              <span class="expand-label">Ver proceso completo</span>
+              <svg class="expand-icon w-4 h-4 transition-transform duration-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+          
+            <div
+              id={`details-${project.id}`}
+              class="details-panel overflow-hidden max-h-0 transition-all duration-500 ease-in-out"
+            >
+              <div class="pt-5 border-t border-white/10 mt-5">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Proceso Ejecutado</h5>
+                <p class="text-slate-300 text-sm leading-relaxed">{project.process}</p>
+
+                {project.specs && (
+                  <div class="mt-5 grid grid-cols-2 gap-3">
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                      <p class="text-2xl font-bold text-white">{project.specs.eslora}</p>
+                      <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Eslora</p>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 text-center">
+                      <p class="text-2xl font-bold text-white">{project.specs.manga}</p>
+                      <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Manga</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.expand-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetId = (btn as HTMLElement).dataset.target!;
+      const panel = document.getElementById(targetId) as HTMLElement;
+      const icon = btn.querySelector('.expand-icon') as HTMLElement;
+      const label = btn.querySelector('.expand-label') as HTMLElement;
+
+      const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+
+      if (isOpen) {
+        panel.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+        label.textContent = 'Ver proceso completo';
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+        label.textContent = 'Ocultar proceso';
+      }
+    });
+  });
+</script>
